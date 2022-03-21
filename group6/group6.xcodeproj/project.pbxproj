@@ -20,6 +20,7 @@
 		B74F0DB227E82072003DC728 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0DB127E82072003DC728 /* Color.swift */; };
 		B74F0DB427E8207C003DC728 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0DB327E8207C003DC728 /* Size.swift */; };
 		B74F0DB627E820E4003DC728 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0DB527E820E4003DC728 /* Point.swift */; };
+		B74F0DB927E8217A003DC728 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0DB827E8217A003DC728 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B74F0DB127E82072003DC728 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B74F0DB327E8207C003DC728 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		B74F0DB527E820E4003DC728 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		B74F0DB827E8217A003DC728 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		B74F0D7A27E818E6003DC728 /* group6 */ = {
 			isa = PBXGroup;
 			children = (
+				B74F0DB727E82167003DC728 /* Utils */,
 				B74F0DAE27E81ECB003DC728 /* Model */,
 				B74F0DAB27E81AC2003DC728 /* View */,
 				B74F0D7B27E818E6003DC728 /* AppDelegate.swift */,
@@ -153,6 +156,14 @@
 				B74F0DB527E820E4003DC728 /* Point.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B74F0DB727E82167003DC728 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B74F0DB827E8217A003DC728 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +300,7 @@
 				B74F0D8027E818E6003DC728 /* ViewController.swift in Sources */,
 				B74F0D7C27E818E6003DC728 /* AppDelegate.swift in Sources */,
 				B74F0D7E27E818E6003DC728 /* SceneDelegate.swift in Sources */,
+				B74F0DB927E8217A003DC728 /* Extensions.swift in Sources */,
 				B74F0DB227E82072003DC728 /* Color.swift in Sources */,
 				B74F0DB627E820E4003DC728 /* Point.swift in Sources */,
 				B74F0DB427E8207C003DC728 /* Size.swift in Sources */,

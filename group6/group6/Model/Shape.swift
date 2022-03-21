@@ -11,10 +11,16 @@ import Foundation
 protocol Shapable{
     var id : String {get}
     var color : Color {get}
-    var point : Point {get}
-    var size : Size {get}
+//    var point : Point {get}
+//    var size : Size {get}
 }
-
-class Shape {
-    
-}
+//
+//class Shape : Shapable {
+//    
+//    var id: String
+//    var color: Color
+//    
+//    init(){
+//        
+//    }
+//}
