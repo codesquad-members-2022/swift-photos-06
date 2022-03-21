@@ -8,26 +8,21 @@
 import XCTest
 @testable import group6
 
-class group6Tests: XCTestCase {
-    
-    var color : Color!
+class ShapeTests: XCTestCase {
+
     var model : Shape!
-    var modelFactory : ModelProducible!
-    var propertyFactory : PropertyProducible!
     
     override func setUpWithError() throws {
-        color = Color(r: 0, g: 2, b: 3)
-        modelFactory = ModelProducible(min:Point, max:Point, size:Size)
-        model = Shape()
-        
+        model = Shape(id: Id() ,color:Color(), size: Size(width : 80, height : 80))
     }
 
     override func tearDownWithError() throws {
     }
 
-    func testExample() throws {
+    func testChangeColor() throws {
+        
     }
-
+    
     func testPerformanceExample() throws {
         self.measure {
             // Put the code you want to measure the time of here.
