@@ -25,6 +25,7 @@
 		D298A2CA27E96D9500B346D1 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2C927E96D9500B346D1 /* CustomCollectionView.swift */; };
 		D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */; };
 		D298A2CF27E9A0C500B346D1 /* ShapeFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */; };
+		D298A2D127E9AEA400B346D1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2D027E9AEA400B346D1 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D298A2C927E96D9500B346D1 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCollectionCell.swift; sourceTree = "<group>"; };
 		D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactoryTest.swift; sourceTree = "<group>"; };
+		D298A2D027E9AEA400B346D1 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +189,9 @@
 		B74F0DAE27E81ECB003DC728 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B726A38C27E9A0A10035B7C3 /* Factory */,
+				D298A2D027E9AEA400B346D1 /* Storage.swift */,
 				D266127227E95B9A004910B0 /* CustomShape.swift */,
+				B726A38C27E9A0A10035B7C3 /* Factory */,
 				D266127427E95BA6004910B0 /* Attribute */,
 			);
 			path = Model;
@@ -395,6 +398,7 @@
 				B726A38E27E9A0B60035B7C3 /* ShapeFactory.swift in Sources */,
 				D298A2CA27E96D9500B346D1 /* CustomCollectionView.swift in Sources */,
 				B74F0D7E27E818E6003DC728 /* SceneDelegate.swift in Sources */,
+				D298A2D127E9AEA400B346D1 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
