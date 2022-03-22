@@ -26,16 +26,17 @@ class StorageTest: XCTestCase {
         XCTAssertEqual(storage.count, 0 , "Wrong!")
         
         
-        shapes.append(contentsOf: CustomShape(id: "dd", color: CustomColor(red: 1, green: 1, blue: 2), size: CustomSize(width: 80, height: 80)))
+        shapes.append(contentsOf: [CustomShape(id: "dd", color: CustomColor(red: 1, green: 1, blue: 2), size: CustomSize(width: 80, height: 80))])
         storage.addShape(shapes : shapes)
         XCTAssertEqual(storage.count, 1 , "Wrong!")
 
+        let shape = storage[0]
         
         //Complie error
-        storage[-1]
+        //storage[-1]
         
         //error
-        storage[2]
+        let error = storage[2]
         
         
         

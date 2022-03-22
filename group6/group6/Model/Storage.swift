@@ -10,8 +10,24 @@ import Foundation
 final class Storage{
     private(set) var shapes: [CustomShape]?
     
+    var count: Int{
+        guard let shapes = shapes else {
+            return 0
+        }
+        
+        return shapes.count
+    }
+    
     subscript(index: UInt) -> CustomShape?{
-        return shapes?[Int(index)]
+        guard let shapes = shapes else {
+            return nil
+        }
+        
+        if index > count - 1{
+            return nil
+        } else{
+            return shapes[Int(index)]
+        }
     }
     
     func addShape(shapes: [CustomShape]){
@@ -20,13 +36,5 @@ final class Storage{
         } else{
             self.shapes = shapes
         }
-    }
-    
-    func count() -> Int{
-        guard let shapes = shapes else {
-            return 0
-        }
-        
-        return shapes.count
     }
 }

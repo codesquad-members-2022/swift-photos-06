@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import group6
 
 class ShapeFactoryTest: XCTestCase {
     override func setUpWithError() throws {
@@ -21,9 +22,9 @@ class ShapeFactoryTest: XCTestCase {
         let shapesTwo = factory.makeShapes(num: 30)
         
         // private 오류 발생 확인
-        let id = factory.makeID
-        let size: CustomSize = factory.makeSize(width: 80, height: 80)
-        let color: CustomColor = factory.makeColor()
+        //let id = factory.makeID
+        //let size: CustomSize = factory.makeSize(width: 80, height: 80)
+        //let color: CustomColor = factory.makeColor()
     }
 
     func testPerformanceExample() throws {
