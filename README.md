@@ -1,2 +1,5 @@
 # swift-photos-06
-Test
+
+<details>
+<summary> STEP1 : 프로젝트 설정 </summary>
+</details>
