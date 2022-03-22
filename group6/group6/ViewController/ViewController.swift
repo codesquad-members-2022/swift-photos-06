@@ -8,45 +8,59 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var collectionView: CustomCollectionView!
+    private let shapeFactory = ShapeFactory()
+    private var storage = Storage()
     
-    let rectangle = CustomShape(id: "abc", color: CustomColor(red: 0, green: 0, blue: 250), size: CustomSize(width: 80, height: 80))
+    private var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        makeShapeData()
+        
+        collectionViewConfigure()
+        collectionViewDelegate()
+    }
+    
+    func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        self.collectionView = CustomCollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), collectionViewLayout: layout)
+        
+        self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: RectangleCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
-        collectionViewDelegate()
     }
             
     func collectionViewDelegate() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    func makeShapeData(){
+        let shapes = shapeFactory.makeShapes(num: 40)
+        self.storage.addShape(shapes: shapes)
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return storage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let shape = storage[UInt(indexPath.item)] else{ return UICollectionViewCell() }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleCollectionCell.identifier, for: indexPath)
-        cell.backgroundColor = UIColor(red: rectangle.color.redValue, green: rectangle.color.greenValue, blue: rectangle.color.blueValue, alpha: 1)
+        cell.backgroundColor = UIColor(red: shape.color.redValue, green: shape.color.greenValue, blue: shape.color.blueValue, alpha: 1)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = rectangle.size.width
-        let cellHeight = rectangle.size.height
+        guard let shape = storage[UInt(indexPath.item)] else{ return CGSize() }
             
-        return CGSize(width: cellWidth, height: cellHeight)
+        return CGSize(width: shape.size.width, height: shape.size.height)
     }
 }
 
