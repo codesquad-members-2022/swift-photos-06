@@ -18,22 +18,21 @@ class ShapeTests: XCTestCase {
     }
 
     func testExample() throws {
-
         //속성값들 은 Private let 으로 설정, 외부에서 접근 불가.
-        var model = Shape(id: Id(),color: Color(r: 1, g: 2, b: 3), size: Size(width:80 , height:80))
+        var model = CustomShape(id: "ABCD", color: CustomColor(red: 100, green: 100, blue: 100), size: CustomSize(width: 50, height: 50))
         
+        let id = model.id
+        let color = model.showColor()
+        let size = model.showSize()
         
         //변수 변경 불가.
-        model.color = Color.white
-        model.size = Size(80,80)
-        model.id = "#32152"
-    
-  
+        //model.color = CustomColor(red: 50, green: 50, blue: 50)
+        //model.size = CustomSize(width: 80, height: 80)
+        //model.id = UUID()
     }
     
     func testPerformanceExample() throws {
         self.measure {
-            // Put the code you want to measure the time of here.
         }
     }
 
