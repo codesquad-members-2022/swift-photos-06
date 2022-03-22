@@ -22,8 +22,8 @@ class ShapeTests: XCTestCase {
         var model = CustomShape(id: "ABCD", color: CustomColor(red: 100, green: 100, blue: 100), size: CustomSize(width: 50, height: 50))
         
         let id = model.id
-        let color = model.showColor()
-        let size = model.showSize()
+        let color = model.color
+        let size = model.size
         
         //변수 변경 불가.
         //model.color = CustomColor(red: 50, green: 50, blue: 50)
