@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class RectangleCollectionCell: UICollectionViewCell{
+    static let identifier: String = "RectangleCollectionCell"
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

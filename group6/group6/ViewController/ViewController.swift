@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.collectionView = CustomCollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), collectionViewLayout: layout)
-        self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: rectangle.id)
+        self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: RectangleCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
         collectionViewDelegate()
@@ -36,7 +36,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rectangle.id, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleCollectionCell.identifier, for: indexPath)
         cell.backgroundColor = UIColor(red: rectangle.color.redValue, green: rectangle.color.greenValue, blue: rectangle.color.blueValue, alpha: 1)
         
         return cell
