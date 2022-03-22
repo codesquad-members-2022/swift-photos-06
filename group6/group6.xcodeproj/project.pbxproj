@@ -22,6 +22,7 @@
 		D266127327E95B9A004910B0 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266127227E95B9A004910B0 /* CustomShape.swift */; };
 		D298A2CA27E96D9500B346D1 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2C927E96D9500B346D1 /* CustomCollectionView.swift */; };
 		D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */; };
+		D298A2CF27E9A0C500B346D1 /* ShapeFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D266127227E95B9A004910B0 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		D298A2C927E96D9500B346D1 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCollectionCell.swift; sourceTree = "<group>"; };
+		D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactoryTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		B74F0D9127E818E7003DC728 /* group6Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */,
 				B74F0DBC27E8A25F003DC728 /* ColorTests.swift */,
 				B74F0D9227E818E7003DC728 /* ShapeTests.swift */,
 			);
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B74F0D9327E818E7003DC728 /* ShapeTests.swift in Sources */,
+				D298A2CF27E9A0C500B346D1 /* ShapeFactoryTest.swift in Sources */,
 				B74F0DBD27E8A25F003DC728 /* ColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
