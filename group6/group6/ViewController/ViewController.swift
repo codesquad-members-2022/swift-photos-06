@@ -8,20 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var collectionView: CustomCollectionView!
+    private var collectionView: UICollectionView!
     
     let rectangle = CustomShape(id: "abc", color: CustomColor(red: 0, green: 0, blue: 250), size: CustomSize(width: 80, height: 80))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionViewConfigure()
+        collectionViewDelegate()
+    }
+    
+    func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        self.collectionView = CustomCollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), collectionViewLayout: layout)
+        
+        self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: RectangleCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
-        collectionViewDelegate()
     }
             
     func collectionViewDelegate() {
