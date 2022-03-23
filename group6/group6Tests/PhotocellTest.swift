@@ -26,9 +26,9 @@ class PhotocellTest: XCTestCase {
     func testPhotoCell() throws {
         var photoCell = PhotoCollectionCell()
         let testImage = UIImage(systemName: "rectangle")
-        photoCell.setImage(Image: testImage)
-        XCTAssertEqual(photoCell.imageView?.image,testImage, "Wrong Image!")
-        XCTAssertEqual(PhotoCollectionCell.id,"PhotoCollectionCell", "Wrong Id!")
+        photoCell.setImage(image: testImage)
+        XCTAssertEqual(photoCell.checkImage(),testImage, "Wrong Image!")
+        XCTAssertEqual(PhotoCollectionCell.identifier,"PhotoCollectionCell", "Wrong Id!")
     }
 
 
