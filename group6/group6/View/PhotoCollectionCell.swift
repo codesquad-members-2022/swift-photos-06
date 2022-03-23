@@ -23,19 +23,10 @@ class PhotoCollectionCell: UICollectionViewCell{
     }
     
     func setImage(image: UIImage?){
-        guard let image = image else {
-            self.imageView.image = UIImage(systemName: "multiply")
-            return
-        }
-        
         self.imageView.image = image
     }
     
     func checkImage() -> UIImage?{
-        guard let image = self.imageView.image else{
-            return nil
-        }
-        
-        return image
+        return self.imageView.image
     }
 }
