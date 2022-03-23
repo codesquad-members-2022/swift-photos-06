@@ -22,6 +22,20 @@ class ViewController: UIViewController {
         collectionViewDelegate()
     }
     
+    private func navigationConfigure(){
+        navigationTitleConfigure()
+        navigationRightBarButtonConfigure()
+    }
+    
+    private func navigationTitleConfigure(){
+        self.title = "Photos"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 21) ?? UIFont()]
+    }
+    
+    private func navigationRightBarButtonConfigure(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
+    }
+    
     func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
