@@ -24,8 +24,6 @@ class ViewController: UIViewController {
     
     func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: RectangleCollectionCell.identifier)
         
