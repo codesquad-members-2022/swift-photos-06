@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationConfigure()
         
         makeShapeData()
         
@@ -62,3 +63,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 }
 
+
+// MARK: - Use case: Configure NavigationBar
+
+extension ViewController{
+    private func navigationConfigure(){
+        navigationTitleConfigure()
+        navigationRightBarButtonConfigure()
+    }
+    
+    private func navigationTitleConfigure(){
+        self.title = "Photos"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 21) ?? UIFont()]
+    }
+    
+    private func navigationRightBarButtonConfigure(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
+    }
+}
