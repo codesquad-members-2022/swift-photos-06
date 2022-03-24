@@ -16,17 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationConfigure()
-        
-        makeShapeData()
-        
         collectionViewConfigure()
         collectionViewDelegate()
+        
+        
     }
     
     func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        self.collectionView.register(RectangleCollectionCell.self, forCellWithReuseIdentifier: RectangleCollectionCell.identifier)
+        self.collectionView.register(PhotoCollectionCell.self, forCellWithReuseIdentifier: PhotoCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
     }
@@ -36,10 +35,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    func makeShapeData(){
-        let shapes = shapeFactory.makeShapes(num: 40)
-        self.storage.addShape(shapes: shapes)
-    }
+
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

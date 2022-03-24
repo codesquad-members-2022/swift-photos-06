@@ -14,12 +14,14 @@ class PhotoCollectionCell: UICollectionViewCell{
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.backgroundView = imageView
+        imageView.frame = self.contentView.bounds
+        contentView.addSubview(imageView)
     }
         
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundView = imageView
+        imageView.frame = self.contentView.bounds
+        contentView.addSubview(imageView)
     }
     
     func setImage(image: UIImage?){
