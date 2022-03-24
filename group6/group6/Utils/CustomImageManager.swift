@@ -11,10 +11,12 @@ import Photos
 
 final class CustomImageManager{
     static let shared = CustomImageManager()
-    
     fileprivate let imageManager = PHCachingImageManager()
     private var assetIdentifier: String?
     private(set) var thumbnailSize = CGSize(width: 100, height: 100)
+    
+    
+    
     
     func requestImage(asset: PHAsset?, thumbnailSize: CGSize, completion: @escaping (UIImage?) -> Void){
         guard let asset = asset else {
