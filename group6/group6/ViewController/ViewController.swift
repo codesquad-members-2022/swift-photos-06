@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
     private let shapeFactory = ShapeFactory()
     private var storage = Storage()
-    
+    private var fetchResult : PHFetchResult<PHAsset>?
     private var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -18,7 +19,7 @@ class ViewController: UIViewController {
         navigationConfigure()
         collectionViewConfigure()
         collectionViewDelegate()
-        
+        fetchPHAsset()
         
     }
     
@@ -35,6 +36,18 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    func fetchPHAsset(){
+        let accessLevel : PHAccessLevel = .readWrite
+        PHPhotoLibrary.requestAuthorization(for: accessLevel) { (status) in
+            switch status {
+            case .authorized :
+                self.fetchResult = PHAsset.fetchAssets(with: nil)
+            default :
+                self.fetchResult = nil
+            }
+        }
+    }
+    
 
 }
 
@@ -46,8 +59,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let shape = storage[UInt(indexPath.item)] else{ return UICollectionViewCell() }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleCollectionCell.identifier, for: indexPath)
-        cell.backgroundColor = UIColor(red: shape.color.redValue, green: shape.color.greenValue, blue: shape.color.blueValue, alpha: 1)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionCell.identifier, for: indexPath)
+        
+        guard let photoCell = cell as? PhotoCollectionCell else {return UICollectionViewCell()}
         
         return cell
     }
