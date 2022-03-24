@@ -36,29 +36,6 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    func fetchPHAsset(){
-        if PHPhotoLibrary.authorizationStatus() == .authorized {
-            self.fetchResult = PHAsset.fetchAssets(with: .image, options: nil)
-        }
-        
-        PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
-            switch status {
-            case .notDetermined:
-                break
-            case .restricted:
-                break
-            case .denied:
-                break
-            case .authorized:
-                self.fetchResult = PHAsset.fetchAssets(with: nil)
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            default :
-                break
-            }
-        }
-    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -71,7 +48,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         guard let photoCell = cell as? PhotoCollectionCell, let asset = fetchResult?.object(at: indexPath.item) else {return UICollectionViewCell()}
         
-        CustomImageManager.shared.requestImage(asset: asset, thumbnailSize: CustomImageManager.shared.thumbnailSize){ image in
+        CustomPhotoManager.shared.requestImage(asset: asset, thumbnailSize: CustomPhotoManager.shared.thumbnailSize){ image in
             photoCell.setImage(image: image)
         }
         
@@ -100,14 +77,44 @@ extension ViewController{
     private func navigationRightBarButtonConfigure(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
     }
+    
 }
+// MARK: - Use case: fetchPHAsset
+
+extension ViewController {
+    func fetchPHAsset(){
+        if PHPhotoLibrary.authorizationStatus() == .authorized {
+            self.fetchResult = PHAsset.fetchAssets(with: .image, options: nil)
+        }
+        
+        PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
+            switch status {
+            case .notDetermined:
+                break
+            case .restricted:
+                break
+            case .denied:
+                break
+            case .authorized:
+                self.fetchResult = PHAsset.fetchAssets(with: nil)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            default :
+                break
+            }
+        }
+    }
+
+}
+
 
 extension ViewController : PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let asset = fetchResult , let change = changeInstance.changeDetails(for: asset) else {return}
         self.fetchResult = change.fetchResultAfterChanges
         
-        DispatchQueue.main.async {  
+        DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
