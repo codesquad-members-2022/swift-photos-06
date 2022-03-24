@@ -23,6 +23,7 @@
 		D266126F27E95653004910B0 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266126E27E95653004910B0 /* CustomColor.swift */; };
 		D266127127E95B61004910B0 /* CustomSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266127027E95B61004910B0 /* CustomSize.swift */; };
 		D266127327E95B9A004910B0 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266127227E95B9A004910B0 /* CustomShape.swift */; };
+		D26D58BB27EC43ED00AA5050 /* CustomImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D58BA27EC43ED00AA5050 /* CustomImageManager.swift */; };
 		D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */; };
 		D298A2CF27E9A0C500B346D1 /* ShapeFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */; };
 		D298A2D127E9AEA400B346D1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2D027E9AEA400B346D1 /* Storage.swift */; };
@@ -74,6 +75,7 @@
 		D266126E27E95653004910B0 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		D266127027E95B61004910B0 /* CustomSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSize.swift; sourceTree = "<group>"; };
 		D266127227E95B9A004910B0 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
+		D26D58BA27EC43ED00AA5050 /* CustomImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageManager.swift; sourceTree = "<group>"; };
 		D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCollectionCell.swift; sourceTree = "<group>"; };
 		D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactoryTest.swift; sourceTree = "<group>"; };
 		D298A2D027E9AEA400B346D1 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		B74F0DB727E82167003DC728 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D26D58BA27EC43ED00AA5050 /* CustomImageManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */,
 				D266127127E95B61004910B0 /* CustomSize.swift in Sources */,
 				D266127327E95B9A004910B0 /* CustomShape.swift in Sources */,
+				D26D58BB27EC43ED00AA5050 /* CustomImageManager.swift in Sources */,
 				D24E744027EB06E0004BCE08 /* PhotoCollectionCell.swift in Sources */,
 				D266126F27E95653004910B0 /* CustomColor.swift in Sources */,
 				B74F0D7C27E818E6003DC728 /* AppDelegate.swift in Sources */,

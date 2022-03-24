@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoCollectionCell: UICollectionViewCell{
     static let identifier: String = "PhotoCollectionCell"
+    
     private let imageView = UIImageView()
     
     required init?(coder: NSCoder) {
