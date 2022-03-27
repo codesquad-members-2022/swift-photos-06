@@ -43,10 +43,32 @@ class ViewController: UIViewController {
 extension ViewController{
     func addNotification(){
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: CustomPhotoManager.NotificationName.reloadCollectionView, object: CustomPhotoManager.shared)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadAddedCell), name: CustomPhotoManager.NotificationName.addedAsset, object: CustomPhotoManager.shared)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDeletedCell), name: CustomPhotoManager.NotificationName.deletedAsset, object: CustomPhotoManager.shared)
     }
     
     @objc func reloadCollectionView(){
         self.collectionView.reloadData()
+    }
+    
+    @objc func reloadAddedCell(notification: Notification){
+        guard let indexSet = notification.userInfo?[CustomPhotoManager.NotificationName.addedAsset] as? IndexSet else{ return }
+        
+        let indexPath = indexSet.map{ IndexPath(row: $0, section: 0) }
+        
+        DispatchQueue.main.async {
+            self.collectionView.insertItems(at: indexPath)
+        }
+    }
+    
+    @objc func reloadDeletedCell(notification: Notification){
+        guard let indexSet = notification.userInfo?[CustomPhotoManager.NotificationName.deletedAsset] as? IndexSet else{ return }
+        
+        let indexPath = indexSet.map{ IndexPath(row: $0, section: 0) }
+        
+        DispatchQueue.main.async {
+            self.collectionView.deleteItems(at: indexPath)
+        }
     }
 }
 

@@ -12,6 +12,8 @@ import Photos
 final class CustomPhotoManager: PHCachingImageManager{
     enum NotificationName{
         static let reloadCollectionView = Notification.Name("reloadCollectionView")
+        static let addedAsset = Notification.Name("addedAsset")
+        static let deletedAsset = Notification.Name("deletedAsset")
     }
     
     static let shared = CustomPhotoManager()
@@ -47,14 +49,14 @@ extension CustomPhotoManager{
         guard let asset = asset else {
             completion(nil)
             return
-    }
-         
-    self.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFit, options: nil){ image, _ in
-        guard let image = image else {
-            let noImage = UIImage(systemName: "multiply")
-            completion(noImage)
-            return
         }
+         
+        self.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFit, options: nil){ image, _ in
+            guard let image = image else {
+                let noImage = UIImage(systemName: "multiply")
+                completion(noImage)
+                return
+            }
             
             completion(image)
         }
@@ -82,7 +84,6 @@ extension CustomPhotoManager{
                 }
             }
         }
-        
     }
     
     func startCachingPHAsset() {
@@ -103,10 +104,21 @@ extension CustomPhotoManager{
 extension CustomPhotoManager: PHPhotoLibraryChangeObserver{
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let asset = fetchResult, let change = changeInstance.changeDetails(for: asset) else { return }
-        self.fetchResult = change.fetchResultAfterChanges
+        let afterChangesAsset = change.fetchResultAfterChanges
+        //self.fetchResult = change.fetchResultAfterChanges
         
+        if asset.count > afterChangesAsset.count{
+            self.fetchResult = afterChangesAsset
+            NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.deletedAsset, object: self, userInfo: [CustomPhotoManager.NotificationName.deletedAsset : change.removedIndexes as Any])
+        } else if asset.count < afterChangesAsset.count{
+            self.fetchResult = afterChangesAsset
+            NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.addedAsset, object: self, userInfo: [CustomPhotoManager.NotificationName.addedAsset : change.insertedIndexes as Any])
+        }
+        
+        /*
         DispatchQueue.main.async {
             self.reloadCollectionView()
         }
+         */
     }
 }
