@@ -19,7 +19,11 @@ class ViewController: UIViewController {
         navigationConfigure()
         collectionViewConfigure()
         collectionViewDelegate()
-        CustomPhotoManager.shared.fetchPHAsset()
+        CustomPhotoManager.shared.authorization {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func collectionViewConfigure(){
@@ -42,19 +46,14 @@ class ViewController: UIViewController {
 
 extension ViewController{
     func addNotification(){
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: CustomPhotoManager.NotificationName.reloadCollectionView, object: CustomPhotoManager.shared)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadAddedCell), name: CustomPhotoManager.NotificationName.addedAsset, object: CustomPhotoManager.shared)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadDeletedCell), name: CustomPhotoManager.NotificationName.deletedAsset, object: CustomPhotoManager.shared)
-    }
-    
-    @objc func reloadCollectionView(){
-        self.collectionView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadAddedCell), name: CustomPhotoManager.NotificationName.addedPhoto, object: CustomPhotoManager.shared)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDeletedCell), name: CustomPhotoManager.NotificationName.deletedPhoto, object: CustomPhotoManager.shared)
     }
     
     @objc func reloadAddedCell(notification: Notification){
-        guard let indexSet = notification.userInfo?[CustomPhotoManager.NotificationName.addedAsset] as? IndexSet else{ return }
+        guard let addedIndexSet = notification.userInfo?[CustomPhotoManager.NotificationName.addedPhoto] as? IndexSet else{ return }
         
-        let indexPath = indexSet.map{ IndexPath(row: $0, section: 0) }
+        let indexPath = addedIndexSet.map{ IndexPath(row: $0, section: 0) }
         
         DispatchQueue.main.async {
             self.collectionView.insertItems(at: indexPath)
@@ -62,9 +61,9 @@ extension ViewController{
     }
     
     @objc func reloadDeletedCell(notification: Notification){
-        guard let indexSet = notification.userInfo?[CustomPhotoManager.NotificationName.deletedAsset] as? IndexSet else{ return }
+        guard let deletedIndexSet = notification.userInfo?[CustomPhotoManager.NotificationName.deletedPhoto] as? IndexSet else{ return }
         
-        let indexPath = indexSet.map{ IndexPath(row: $0, section: 0) }
+        let indexPath = deletedIndexSet.map{ IndexPath(row: $0, section: 0) }
         
         DispatchQueue.main.async {
             self.collectionView.deleteItems(at: indexPath)
@@ -83,13 +82,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionCell.identifier, for: indexPath)
         
-        guard let photoCell = cell as? PhotoCollectionCell, let asset = CustomPhotoManager.shared.getImage(indexPath: indexPath) else {return UICollectionViewCell()}
+        guard let photoCell = cell as? PhotoCollectionCell, let asset = CustomPhotoManager.shared.getPHAsset(indexPath: indexPath) else { return UICollectionViewCell() }
         
         CustomPhotoManager.shared.requestImage(asset: asset, thumbnailSize: CustomPhotoManager.shared.thumbnailSize){ image in
+            guard let image = image else { return }
+
             photoCell.setImage(image: image)
         }
         
-        return cell
+        return photoCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
