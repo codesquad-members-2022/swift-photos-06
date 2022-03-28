@@ -105,7 +105,6 @@ extension CustomPhotoManager: PHPhotoLibraryChangeObserver{
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let asset = fetchResult, let change = changeInstance.changeDetails(for: asset) else { return }
         let afterChangesAsset = change.fetchResultAfterChanges
-        //self.fetchResult = change.fetchResultAfterChanges
         
         if asset.count > afterChangesAsset.count{
             self.fetchResult = afterChangesAsset
@@ -114,11 +113,5 @@ extension CustomPhotoManager: PHPhotoLibraryChangeObserver{
             self.fetchResult = afterChangesAsset
             NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.addedAsset, object: self, userInfo: [CustomPhotoManager.NotificationName.addedAsset : change.insertedIndexes as Any])
         }
-        
-        /*
-        DispatchQueue.main.async {
-            self.reloadCollectionView()
-        }
-         */
     }
 }
