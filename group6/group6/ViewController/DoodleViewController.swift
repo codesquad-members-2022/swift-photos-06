@@ -18,13 +18,12 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         
         self.title = "Doodle"
         
-        //navigationItemFigure()
         collectionViewConfigure()
     }
     
     func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
-        self.collectionView = UICollectionView(frame: CGRect(x: 0, y: 75, width: self.view.frame.width, height: self.view.frame.height - 75), collectionViewLayout: layout)
+        self.collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), collectionViewLayout: layout)
         self.collectionView.backgroundColor = .gray
         
         self.collectionView.register(PhotoCollectionCell.self, forCellWithReuseIdentifier: PhotoCollectionCell.identifier)
@@ -32,35 +31,8 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         self.view.addSubview(collectionView)
     }
     
-    func navigationItemFigure(){
-        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 30, width: view.frame.size.width, height: 35))
-        navBar.delegate = self
-        
-        let navItem = UINavigationItem(title: "DoodleTitle")
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dismissDoodleView))
-        navItem.rightBarButtonItem = doneItem
-        navItem.title = "Doodle"
-
-        navBar.setItems([navItem], animated: false)
-        
-        self.view.addSubview(navBar)
-        
-    }
-    
     @objc func dismissDoodleView(){
         self.dismiss(animated: true)
-    }
-    
-    func decodeDoodle(){
-        if let data = Bundle.main.url(forResource: "doodle", withExtension: "json"){
-            do{
-                let jsonData = try Data(contentsOf: data)
-                let decoder = JSONDecoder()
-                self.doodleDatas = try decoder.decode([Doodle].self, from: jsonData)
-            } catch{
-                return
-            }
-        }
     }
             
     /*

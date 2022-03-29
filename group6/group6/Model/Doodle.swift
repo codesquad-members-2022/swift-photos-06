@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Doodle: Codable{
+struct Doodle: Codable, CustomStringConvertible{
+    var description: String{
+        return "Title: \(self.title), URL: \(self.image), Date: \(self.date)"
+    }
+    
     let title: String
-    let image: String
+    let image: URL
     let date: String
 }
