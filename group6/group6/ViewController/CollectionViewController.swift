@@ -118,7 +118,8 @@ extension CollectionViewController{
     
     @objc func presentDoodleView(){
         let doodleVC = DoodleViewController()
-        doodleVC.modalPresentationStyle = .fullScreen
-        self.present(doodleVC, animated: true)
+        let navController = UINavigationController(rootViewController: doodleVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
 }

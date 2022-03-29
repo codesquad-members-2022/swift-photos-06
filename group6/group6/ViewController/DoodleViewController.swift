@@ -16,7 +16,9 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        navigationItemFigure()
+        self.title = "Doodle"
+        
+        //navigationItemFigure()
         collectionViewConfigure()
     }
     
