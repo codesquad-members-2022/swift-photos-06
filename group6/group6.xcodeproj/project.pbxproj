@@ -11,8 +11,7 @@
 		B726A39F27E9AED00035B7C3 /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726A39E27E9AED00035B7C3 /* StorageTest.swift */; };
 		B74F0D7C27E818E6003DC728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7B27E818E6003DC728 /* AppDelegate.swift */; };
 		B74F0D7E27E818E6003DC728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */; };
-		B74F0D8027E818E6003DC728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7F27E818E6003DC728 /* ViewController.swift */; };
-		B74F0D8327E818E6003DC728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8127E818E6003DC728 /* Main.storyboard */; };
+		B74F0D8027E818E6003DC728 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */; };
 		B74F0D8527E818E7003DC728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8427E818E7003DC728 /* Assets.xcassets */; };
 		B74F0D8827E818E7003DC728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */; };
 		B74F0D9327E818E7003DC728 /* ShapeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D9227E818E7003DC728 /* ShapeTests.swift */; };
@@ -60,8 +59,7 @@
 		B74F0D7827E818E6003DC728 /* group6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = group6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F0D7B27E818E6003DC728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B74F0D7F27E818E6003DC728 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B74F0D8227E818E6003DC728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B74F0D8427E818E7003DC728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B74F0D8727E818E7003DC728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B74F0D8927E818E7003DC728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				B74F0DAB27E81AC2003DC728 /* View */,
 				B74F0D7B27E818E6003DC728 /* AppDelegate.swift */,
 				B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */,
-				B74F0D8127E818E6003DC728 /* Main.storyboard */,
 				B74F0D8427E818E7003DC728 /* Assets.xcassets */,
 				B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */,
 				B74F0D8927E818E7003DC728 /* Info.plist */,
@@ -219,7 +216,7 @@
 		D298A2CD27E9913500B346D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B74F0D7F27E818E6003DC728 /* ViewController.swift */,
+				B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -360,7 +357,6 @@
 			files = (
 				B74F0D8827E818E7003DC728 /* LaunchScreen.storyboard in Resources */,
 				B74F0D8527E818E7003DC728 /* Assets.xcassets in Resources */,
-				B74F0D8327E818E6003DC728 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B74F0D8027E818E6003DC728 /* ViewController.swift in Sources */,
+				B74F0D8027E818E6003DC728 /* CollectionViewController.swift in Sources */,
 				D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */,
 				D266127127E95B61004910B0 /* CustomSize.swift in Sources */,
 				D266127327E95B9A004910B0 /* CustomShape.swift in Sources */,
@@ -447,14 +443,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B74F0D8127E818E6003DC728 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B74F0D8227E818E6003DC728 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -625,13 +613,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57KUPHDJ89;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = group6/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "접근하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +626,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Kai.group6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesquad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -654,13 +641,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57KUPHDJ89;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = group6/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "접근하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -668,7 +654,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Kai.group6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesquad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

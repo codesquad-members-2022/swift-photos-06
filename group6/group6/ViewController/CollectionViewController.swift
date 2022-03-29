@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CollectionViewController: UIViewController {
     private var collectionView: UICollectionView!
 
     private var size = CGSize(width: 100, height: 100)
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
 
 // MARK: - Use case: add Notification / Noti function
 
-extension ViewController{
+extension CollectionViewController{
     func addNotification(){
         NotificationCenter.default.addObserver(self, selector: #selector(reloadAddedCell), name: CustomPhotoManager.NotificationName.addedPhoto, object: CustomPhotoManager.shared)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDeletedCell), name: CustomPhotoManager.NotificationName.deletedPhoto, object: CustomPhotoManager.shared)
@@ -74,7 +74,7 @@ extension ViewController{
 
 // MARK: - Use case: Configure CollectionView
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CustomPhotoManager.shared.fetchResultCount()
     }
@@ -101,7 +101,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 
 // MARK: - Use case: Configure NavigationBar
 
-extension ViewController{
+extension CollectionViewController{
     private func navigationConfigure(){
         navigationTitleConfigure()
         navigationRightBarButtonConfigure()
