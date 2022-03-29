@@ -38,7 +38,6 @@ class CollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
 }
 
 
@@ -114,5 +113,12 @@ extension CollectionViewController{
     
     private func navigationRightBarButtonConfigure(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(presentDoodleView))
+    }
+    
+    @objc func presentDoodleView(){
+        let doodleVC = DoodleViewController()
+        doodleVC.modalPresentationStyle = .overFullScreen
+        self.present(doodleVC, animated: true)
     }
 }
