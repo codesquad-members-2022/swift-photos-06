@@ -103,7 +103,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
 extension CollectionViewController{
     private func navigationConfigure(){
         navigationTitleConfigure()
-        navigationRightBarButtonConfigure()
+        navigationBarButtonConfigure()
     }
     
     private func navigationTitleConfigure(){
@@ -111,7 +111,7 @@ extension CollectionViewController{
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 21) ?? UIFont()]
     }
     
-    private func navigationRightBarButtonConfigure(){
+    private func navigationBarButtonConfigure(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(presentDoodleView))
     }
