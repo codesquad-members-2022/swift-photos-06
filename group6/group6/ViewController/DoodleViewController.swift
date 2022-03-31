@@ -10,6 +10,8 @@ import UIKit
 
 class DoodleViewController: UIViewController, UINavigationBarDelegate{
     private var collectionView: UICollectionView!
+    private var cellImages = [IndexPath: UIImage]()
+    private var selectedIndexPath: IndexPath!
     
     private var size = CGSize(width: 110, height: 50)
     private var collectionViewYPoint: CGFloat{
@@ -28,6 +30,8 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         navigationConfigure()
         collectionViewConfigure()
         collectionViewDelegate()
+        setupLongGestureOnCollection()
+        setupMenu()
     }
     
     func collectionViewConfigure(){
@@ -70,6 +74,7 @@ extension DoodleViewController{
     }
 }
 
+
 // MARK: - Use case: Configure CollectionView
 
 extension DoodleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -84,6 +89,7 @@ extension DoodleViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         DataManager.shared.requestImage(doodle: doodle){ image in
             guard let image = image else { return }
+            self.cellImages[indexPath] = image
 
             DispatchQueue.main.async {
                 photoCell.setImage(image: image)
@@ -95,5 +101,64 @@ extension DoodleViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 50)
+    }
+}
+
+
+// MARK: - Use case: Set UIMenuController
+
+extension DoodleViewController{
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    func setupMenu(){
+        let menuItem = UIMenuItem(title: "Download", action: #selector(download))
+        UIMenuController.shared.menuItems = [menuItem]
+        UIMenuController.shared.update()
+    }
+    
+    func showMenu(index: CGPoint){
+        guard let indexPath = collectionView.indexPathForItem(at: index), let cell = collectionView.cellForItem(at: indexPath) else { return }
+        
+        self.selectedIndexPath = indexPath
+        
+        let x: CGFloat = cell.frame.midX
+        let y: CGFloat = cell.frame.minY
+            
+        becomeFirstResponder()
+        UIMenuController.shared.showMenu(from: collectionView, rect: CGRect(x: x, y: y, width: 10, height: 10))
+    }
+    
+    @objc func download(){
+        guard let image = cellImages[selectedIndexPath] else{
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        }
+    }
+}
+
+
+// MARK: - Use case: GestureRecoginzer Delegate
+
+extension DoodleViewController: UIGestureRecognizerDelegate{
+    private func setupLongGestureOnCollection(){
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delaysTouchesBegan = true
+        longPressedGesture.delegate = self
+        collectionView.addGestureRecognizer(longPressedGesture)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state != .began{
+            return
+        }
+        
+        let index = gestureRecognizer.location(in: collectionView)
+        showMenu(index: index)
     }
 }
