@@ -11,7 +11,8 @@ import Photos
 
 final class CustomPhotoManager: PHCachingImageManager{
     enum NotificationName{
-        static let reloadCollectionView = Notification.Name("reloadCollectionView")
+        static let addedPhoto = Notification.Name("addedPhoto")
+        static let deletedPhoto = Notification.Name("deletedPhoto")
     }
     
     static let shared = CustomPhotoManager()
@@ -37,7 +38,7 @@ extension CustomPhotoManager{
         return fetchResult?.count ?? 0
     }
     
-    func getImage(indexPath: IndexPath) -> PHAsset?{
+    func getPHAsset(indexPath: IndexPath) -> PHAsset?{
         let asset = fetchResult?.object(at: indexPath.item)
         
         return asset
@@ -45,44 +46,39 @@ extension CustomPhotoManager{
     
     func requestImage(asset: PHAsset?, thumbnailSize: CGSize, completion: @escaping (UIImage?) -> Void){
         guard let asset = asset else {
-            completion(nil)
-            return
-    }
-         
-    self.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFit, options: nil){ image, _ in
-        guard let image = image else {
             let noImage = UIImage(systemName: "multiply")
             completion(noImage)
             return
         }
-            
+         
+        self.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFit, options: nil){ image, _ in
             completion(image)
         }
     }
     
-    func fetchPHAsset(){
+    func authorization(completion: @escaping () -> ()){
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .authorized:
-            self.fetchResult = PHAsset.fetchAssets(with: nil)
+            self.fetchImage()
             self.startCachingPHAsset()
             
         default:
             PHPhotoLibrary.requestAuthorization(){ status in
                 switch status {
                 case .authorized:
-                    self.fetchResult = PHAsset.fetchAssets(with: nil)
+                    self.fetchImage()
                     self.startCachingPHAsset()
-                    
-                    DispatchQueue.main.async {
-                        self.reloadCollectionView()
-                    }
+                    completion()
                 default:
-                    self.fetchResult = nil
+                    break
                 }
             }
         }
-        
+    }
+    
+    func fetchImage(){
+        self.fetchResult = PHAsset.fetchAssets(with: nil)
     }
     
     func startCachingPHAsset() {
@@ -91,10 +87,6 @@ extension CustomPhotoManager{
         let assetArray : [PHAsset] = assets.objects(at: index)
         self.startCachingImages(for: assetArray, targetSize: self.thumbnailSize, contentMode: .aspectFit,  options: nil)
     }
-    
-    func reloadCollectionView(){
-        NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.reloadCollectionView, object: self, userInfo: nil)
-    }
 }
 
 
@@ -102,11 +94,15 @@ extension CustomPhotoManager{
 
 extension CustomPhotoManager: PHPhotoLibraryChangeObserver{
     func photoLibraryDidChange(_ changeInstance: PHChange) {
-        guard let asset = fetchResult, let change = changeInstance.changeDetails(for: asset) else { return }
-        self.fetchResult = change.fetchResultAfterChanges
+        guard let previousFetchResult = fetchResult, let change = changeInstance.changeDetails(for: previousFetchResult) else { return }
+        let newFetchResult = change.fetchResultAfterChanges
         
-        DispatchQueue.main.async {
-            self.reloadCollectionView()
+        if previousFetchResult.count > newFetchResult.count{
+            self.fetchResult = newFetchResult
+            NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.deletedPhoto, object: self, userInfo: [CustomPhotoManager.NotificationName.deletedPhoto : change.removedIndexes as Any])
+        } else if previousFetchResult.count < newFetchResult.count{
+            self.fetchResult = newFetchResult
+            NotificationCenter.default.post(name: CustomPhotoManager.NotificationName.addedPhoto, object: self, userInfo: [CustomPhotoManager.NotificationName.addedPhoto : change.insertedIndexes as Any])
         }
     }
 }

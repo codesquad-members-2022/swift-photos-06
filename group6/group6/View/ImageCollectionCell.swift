@@ -8,10 +8,14 @@
 import Foundation
 import UIKit
 
-class PhotoCollectionCell: UICollectionViewCell{
+class ImageCollectionCell: UICollectionViewCell{
     static let identifier: String = "PhotoCollectionCell"
     
     private let imageView = UIImageView()
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

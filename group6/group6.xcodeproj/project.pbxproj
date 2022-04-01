@@ -11,8 +11,7 @@
 		B726A39F27E9AED00035B7C3 /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726A39E27E9AED00035B7C3 /* StorageTest.swift */; };
 		B74F0D7C27E818E6003DC728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7B27E818E6003DC728 /* AppDelegate.swift */; };
 		B74F0D7E27E818E6003DC728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */; };
-		B74F0D8027E818E6003DC728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7F27E818E6003DC728 /* ViewController.swift */; };
-		B74F0D8327E818E6003DC728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8127E818E6003DC728 /* Main.storyboard */; };
+		B74F0D8027E818E6003DC728 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */; };
 		B74F0D8527E818E7003DC728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8427E818E7003DC728 /* Assets.xcassets */; };
 		B74F0D8827E818E7003DC728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */; };
 		B74F0D9327E818E7003DC728 /* ShapeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D9227E818E7003DC728 /* ShapeTests.swift */; };
@@ -20,10 +19,14 @@
 		B74F0D9F27E818E7003DC728 /* group6UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0D9E27E818E7003DC728 /* group6UITestsLaunchTests.swift */; };
 		B74F0DBD27E8A25F003DC728 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F0DBC27E8A25F003DC728 /* ColorTests.swift */; };
 		B75A1B6C27EC7CDB00E92FB8 /* CustomPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A1B6B27EC7CDB00E92FB8 /* CustomPhotoManager.swift */; };
-		D24E744027EB06E0004BCE08 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E743F27EB06E0004BCE08 /* PhotoCollectionCell.swift */; };
+		D24E744027EB06E0004BCE08 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E743F27EB06E0004BCE08 /* ImageCollectionCell.swift */; };
 		D266126F27E95653004910B0 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266126E27E95653004910B0 /* CustomColor.swift */; };
 		D266127127E95B61004910B0 /* CustomSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266127027E95B61004910B0 /* CustomSize.swift */; };
 		D266127327E95B9A004910B0 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266127227E95B9A004910B0 /* CustomShape.swift */; };
+		D270C76D27F2A2B80065D215 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = D270C76C27F2A2B80065D215 /* doodle.json */; };
+		D270C76F27F2A2D20065D215 /* Doodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C76E27F2A2D20065D215 /* Doodle.swift */; };
+		D270C77127F2A30C0065D215 /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C77027F2A30C0065D215 /* DoodleViewController.swift */; };
+		D270C79527F341C00065D215 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C79427F341BF0065D215 /* DataManager.swift */; };
 		D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */; };
 		D298A2CF27E9A0C500B346D1 /* ShapeFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */; };
 		D298A2D127E9AEA400B346D1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298A2D027E9AEA400B346D1 /* Storage.swift */; };
@@ -60,8 +63,7 @@
 		B74F0D7827E818E6003DC728 /* group6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = group6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F0D7B27E818E6003DC728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B74F0D7F27E818E6003DC728 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B74F0D8227E818E6003DC728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B74F0D8427E818E7003DC728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B74F0D8727E818E7003DC728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B74F0D8927E818E7003DC728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,10 +74,14 @@
 		B74F0D9E27E818E7003DC728 /* group6UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = group6UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B74F0DBC27E8A25F003DC728 /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		B75A1B6B27EC7CDB00E92FB8 /* CustomPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoManager.swift; sourceTree = "<group>"; };
-		D24E743F27EB06E0004BCE08 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
+		D24E743F27EB06E0004BCE08 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		D266126E27E95653004910B0 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		D266127027E95B61004910B0 /* CustomSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSize.swift; sourceTree = "<group>"; };
 		D266127227E95B9A004910B0 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
+		D270C76C27F2A2B80065D215 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
+		D270C76E27F2A2D20065D215 /* Doodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doodle.swift; sourceTree = "<group>"; };
+		D270C77027F2A30C0065D215 /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
+		D270C79427F341BF0065D215 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCollectionCell.swift; sourceTree = "<group>"; };
 		D298A2CE27E9A0C500B346D1 /* ShapeFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactoryTest.swift; sourceTree = "<group>"; };
 		D298A2D027E9AEA400B346D1 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -151,10 +157,10 @@
 				B74F0DAB27E81AC2003DC728 /* View */,
 				B74F0D7B27E818E6003DC728 /* AppDelegate.swift */,
 				B74F0D7D27E818E6003DC728 /* SceneDelegate.swift */,
-				B74F0D8127E818E6003DC728 /* Main.storyboard */,
 				B74F0D8427E818E7003DC728 /* Assets.xcassets */,
 				B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */,
 				B74F0D8927E818E7003DC728 /* Info.plist */,
+				D270C76C27F2A2B80065D215 /* doodle.json */,
 			);
 			path = group6;
 			sourceTree = "<group>";
@@ -183,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				D298A2CB27E96DBA00B346D1 /* RectangleCollectionCell.swift */,
-				D24E743F27EB06E0004BCE08 /* PhotoCollectionCell.swift */,
+				D24E743F27EB06E0004BCE08 /* ImageCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 		B74F0DAE27E81ECB003DC728 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D270C76E27F2A2D20065D215 /* Doodle.swift */,
 				D298A2D027E9AEA400B346D1 /* Storage.swift */,
 				D266127227E95B9A004910B0 /* CustomShape.swift */,
 				B726A38C27E9A0A10035B7C3 /* Factory */,
@@ -203,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				B75A1B6B27EC7CDB00E92FB8 /* CustomPhotoManager.swift */,
+				D270C79427F341BF0065D215 /* DataManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -219,7 +227,8 @@
 		D298A2CD27E9913500B346D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B74F0D7F27E818E6003DC728 /* ViewController.swift */,
+				B74F0D7F27E818E6003DC728 /* CollectionViewController.swift */,
+				D270C77027F2A30C0065D215 /* DoodleViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -358,9 +367,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D270C76D27F2A2B80065D215 /* doodle.json in Resources */,
 				B74F0D8827E818E7003DC728 /* LaunchScreen.storyboard in Resources */,
 				B74F0D8527E818E7003DC728 /* Assets.xcassets in Resources */,
-				B74F0D8327E818E6003DC728 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,15 +401,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B74F0D8027E818E6003DC728 /* ViewController.swift in Sources */,
+				B74F0D8027E818E6003DC728 /* CollectionViewController.swift in Sources */,
 				D298A2CC27E96DBA00B346D1 /* RectangleCollectionCell.swift in Sources */,
 				D266127127E95B61004910B0 /* CustomSize.swift in Sources */,
+				D270C79527F341C00065D215 /* DataManager.swift in Sources */,
 				D266127327E95B9A004910B0 /* CustomShape.swift in Sources */,
-				D24E744027EB06E0004BCE08 /* PhotoCollectionCell.swift in Sources */,
+				D24E744027EB06E0004BCE08 /* ImageCollectionCell.swift in Sources */,
 				D266126F27E95653004910B0 /* CustomColor.swift in Sources */,
+				D270C76F27F2A2D20065D215 /* Doodle.swift in Sources */,
 				B75A1B6C27EC7CDB00E92FB8 /* CustomPhotoManager.swift in Sources */,
 				B74F0D7C27E818E6003DC728 /* AppDelegate.swift in Sources */,
 				B726A38E27E9A0B60035B7C3 /* ShapeFactory.swift in Sources */,
+				D270C77127F2A30C0065D215 /* DoodleViewController.swift in Sources */,
 				B74F0D7E27E818E6003DC728 /* SceneDelegate.swift in Sources */,
 				D298A2D127E9AEA400B346D1 /* Storage.swift in Sources */,
 			);
@@ -447,14 +459,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B74F0D8127E818E6003DC728 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B74F0D8227E818E6003DC728 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B74F0D8627E818E7003DC728 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -625,13 +629,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57KUPHDJ89;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = group6/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "접근하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +642,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Kai.group6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesquad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -654,13 +657,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57KUPHDJ89;
+				DEVELOPMENT_TEAM = Q646ABLXY6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = group6/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "접근하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -668,7 +670,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Kai.group6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesquad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
