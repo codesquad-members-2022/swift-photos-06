@@ -29,7 +29,7 @@ class CollectionViewController: UIViewController {
     func collectionViewConfigure(){
         let layout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        self.collectionView.register(PhotoCollectionCell.self, forCellWithReuseIdentifier: PhotoCollectionCell.identifier)
+        self.collectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: ImageCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
     }
@@ -79,9 +79,9 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionCell.identifier, for: indexPath)
         
-        guard let photoCell = cell as? PhotoCollectionCell, let asset = CustomPhotoManager.shared.getPHAsset(indexPath: indexPath) else { return UICollectionViewCell() }
+        guard let photoCell = cell as? ImageCollectionCell, let asset = CustomPhotoManager.shared.getPHAsset(indexPath: indexPath) else { return UICollectionViewCell() }
         
         CustomPhotoManager.shared.requestImage(asset: asset, thumbnailSize: CustomPhotoManager.shared.thumbnailSize){ image in
             guard let image = image else { return }

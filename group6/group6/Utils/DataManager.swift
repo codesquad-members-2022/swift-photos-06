@@ -12,36 +12,36 @@ import os
 class DataManager{
     static let shared = DataManager()
     
-    private var fetchResult: [Doodle]?
+    private var doodles: [Doodle]?
     
     private init() { }
     
-    func decodeDoodle(){
+    func decodeDoodleData(){
         guard let dataURL = Bundle.main.url(forResource: "doodle", withExtension: "json") else { return }
             
         do{
-            let jsonData = try Data(contentsOf: dataURL)
+            let data = try Data(contentsOf: dataURL)
             let decoder = JSONDecoder()
-            let data = try decoder.decode([Doodle].self, from: jsonData)
+            let doodles = try decoder.decode([Doodle].self, from: data)
             
-            self.fetchResult = data
+            self.doodles = doodles
         } catch{
             os_log("%@", "\(error)")
             return
         }
     }
     
-    func fetchResultCount() -> Int{
-        return fetchResult?.count ?? 0
+    func modelsCount() -> Int{
+        return doodles?.count ?? 0
     }
     
     func getDoodle(indexPath: IndexPath) -> Doodle?{
-        let doodle = fetchResult?[indexPath.item]
+        let doodle = doodles?[indexPath.item]
         
         return doodle
     }
     
-    func requestImage(doodle: Doodle?, completion: @escaping (UIImage?) -> Void){
+    func downloadImage(doodle: Doodle?, completion: @escaping (UIImage?) -> Void){
         guard let doodle = doodle else {
             let noImage = UIImage(systemName: "multiply")
             completion(noImage)

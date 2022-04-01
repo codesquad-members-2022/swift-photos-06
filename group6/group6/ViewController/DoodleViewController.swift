@@ -25,7 +25,7 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        DataManager.shared.decodeDoodle()
+        DataManager.shared.decodeDoodleData()
         
         navigationConfigure()
         collectionViewConfigure()
@@ -39,7 +39,7 @@ class DoodleViewController: UIViewController, UINavigationBarDelegate{
         self.collectionView = UICollectionView(frame: CGRect(x: 0, y: collectionViewYPoint, width: self.view.frame.width, height: self.view.frame.height - collectionViewYPoint), collectionViewLayout: layout)
         self.collectionView.backgroundColor = .gray
         
-        self.collectionView.register(PhotoCollectionCell.self, forCellWithReuseIdentifier: PhotoCollectionCell.identifier)
+        self.collectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: ImageCollectionCell.identifier)
         
         self.view.addSubview(collectionView)
     }
@@ -79,24 +79,24 @@ extension DoodleViewController{
 
 extension DoodleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DataManager.shared.fetchResultCount()
+        return DataManager.shared.modelsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionCell.identifier, for: indexPath)
         
-        guard let photoCell = cell as? PhotoCollectionCell, let doodle = DataManager.shared.getDoodle(indexPath: indexPath) else { return UICollectionViewCell() }
+        guard let doodleCell = cell as? ImageCollectionCell, let doodle = DataManager.shared.getDoodle(indexPath: indexPath) else { return UICollectionViewCell() }
         
-        DataManager.shared.requestImage(doodle: doodle){ image in
+        DataManager.shared.downloadImage(doodle: doodle){ image in
             guard let image = image else { return }
             self.cellImages[indexPath] = image
 
             DispatchQueue.main.async {
-                photoCell.setImage(image: image)
+                doodleCell.setImage(image: image)
             }
         }
         
-        return photoCell
+        return doodleCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,10 +108,6 @@ extension DoodleViewController: UICollectionViewDelegate, UICollectionViewDataSo
 // MARK: - Use case: Set UIMenuController
 
 extension DoodleViewController{
-    override var canBecomeFirstResponder: Bool{
-        return true
-    }
-    
     func setupMenu(){
         let menuItem = UIMenuItem(title: "Download", action: #selector(download))
         UIMenuController.shared.menuItems = [menuItem]
@@ -123,11 +119,9 @@ extension DoodleViewController{
         
         self.selectedIndexPath = indexPath
         
-        let x: CGFloat = cell.frame.midX
-        let y: CGFloat = cell.frame.minY
-            
-        becomeFirstResponder()
-        UIMenuController.shared.showMenu(from: collectionView, rect: CGRect(x: x, y: y, width: 10, height: 10))
+        cell.becomeFirstResponder()
+        UIMenuController.shared.arrowDirection = .down
+        UIMenuController.shared.showMenu(from: cell, rect: cell.bounds)
     }
     
     @objc func download(){
